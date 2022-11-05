@@ -1,0 +1,19 @@
+WITH YML FILE
+
+conda env create -f virtual_env_windows.yml # To create the environment
+conda activate pytorchenv # To activate the environment
+conda deactivate # To deactivate the environment
+
+WITH REQUIREMENTS.TXT FILE
+
+Instead of using the environment file, you can also manually create the environment and subsequently install the necessary libraries.
+
+To do so you at first have to create a conda environment:
+
+conda create -n pytorchenv python=3.8.0
+
+Then proceed with y -> Enter
+
+conda activate pytorchenv
+
+pip install -r requirements.txt
