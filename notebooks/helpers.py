@@ -33,6 +33,26 @@ def read_zip(zip_fn, extract_fn=None):
         return {name:zf.read(name) for name in zf.namelist()}
 
 
+######## HELPER FUNCTION TO SWAP COLUMNS IN A DATA FRAME
+
+def swap_columns(df, col1, col2):
+    col_list = list(df.columns)
+    x, y = col_list.index(col1), col_list.index(col2)
+    col_list[y], col_list[x] = col_list[x], col_list[y]
+    df = df[col_list]
+    return df
+
+
+######## HELPER FUNCTION TO REMOVE 'BaseX' STRING FROM IMAGE NAME
+
+def remove_base_x(str_value, ch='/'):
+    list_words = str_value.split(ch, 1)
+    try:
+        return list_words[1]
+    except:
+        return str_value
+
+
 ######### HELPER FUNCTION TO FOR SHOWING AND PLOTTING IMAGES
 
 def show_image(image, title="Image", cmap_type='gray'):
