@@ -20,6 +20,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
+######## HELPER FUNCTION TO PARSE EACH IMAGE FILE
+
+def parse_images(file_names, dir_path, op='original'):
+    for file in file_names:
+        # reading the zip files
+        if '.zip' in file:
+            # reading internal files
+            zip_file = zipfile.ZipFile('{}\data\{}'.format(dir_path, file))
+            for int_file in zip_file.namelist():
+                # reading tif files
+                if '.tif' in int_file:
+                    ifile = zip_file.open(int_file)
+                    img_nparray = np.asarray(Image.open(ifile)) # converting them to np.arrays
+                    if op == 'original':
+                        imsave('{}\data_processed\data_original\{}'.format(dir_path, int_file), img_nparray) # Saving images to path
+            print('{} file read!'.format(file))
+
+
 ######## HELPER FUNCTION FOR READING ZIP FILES 
 
 def read_zip(zip_fn, extract_fn=None):
