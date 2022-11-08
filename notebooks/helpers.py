@@ -23,6 +23,10 @@ import matplotlib.pyplot as plt
 ######## HELPER FUNCTION TO PARSE EACH IMAGE FILE
 
 def parse_images(file_names, dir_path, op='original'):
+    # variables for reshaping
+    #height = 744 # 744 372
+    #width = 1120 # 1120 560
+
     for file in file_names:
         # reading the zip files
         if '.zip' in file:
@@ -33,7 +37,9 @@ def parse_images(file_names, dir_path, op='original'):
                 if '.tif' in int_file:
                     ifile = zip_file.open(int_file)
                     img_nparray = np.asarray(Image.open(ifile)) # converting them to np.arrays
+                    int_file = remove_base_x(int_file, ch='/')
                     if op == 'original':
+                        #image_resized = resize(img_nparray, (height, width)) # Resize image using height and width
                         imsave('{}\data_processed\data_original\{}'.format(dir_path, int_file), img_nparray) # Saving images to path
             print('{} file read!'.format(file))
 
