@@ -4,6 +4,7 @@ from skimage.filters import threshold_otsu, threshold_local, try_all_threshold, 
 from skimage.transform import rotate, rescale, resize
 from skimage.feature import canny
 from skimage.io import imsave
+from skimage.util import img_as_ubyte
 # scipy for image
 from scipy import ndimage as ndi
 # import for file interaction
@@ -22,7 +23,7 @@ import matplotlib.pyplot as plt
 
 ######## HELPER FUNCTION TO PARSE EACH IMAGE FILE
 
-def parse_images(file_names, dir_path, op='original'):
+def parse_images(file_names, dir_path, op='original', height=800, width=800):
     # variables for reshaping
     #height = 744 # 744 372
     #width = 1120 # 1120 560
@@ -39,8 +40,10 @@ def parse_images(file_names, dir_path, op='original'):
                     img_nparray = np.asarray(Image.open(ifile)) # converting them to np.arrays
                     int_file = remove_base_x(int_file, ch='/')
                     if op == 'original':
-                        #image_resized = resize(img_nparray, (height, width)) # Resize image using height and width
                         imsave('{}\data_processed\data_original\{}'.format(dir_path, int_file), img_nparray) # Saving images to path
+                    if op == 'resize':
+                        image_resized = resize(img_nparray, (height, width)) # Resize image using height and width
+                        image_resized = img_as_ubyte(image_resized)
             print('{} file read!'.format(file))
 
 
