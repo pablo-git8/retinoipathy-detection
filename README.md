@@ -1,3 +1,10 @@
+![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![terminal](https://img.shields.io/badge/windows%20terminal-4D4D4D?style=for-the-badge&logo=windows%20terminal&logoColor=white)
+![git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+![markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
+![powershell](https://img.shields.io/badge/powershell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
+![jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)
+
 # Aneurysm Detection in Patients with Diabetic Retinopathy
 
 This repository contains a deep learning project aimed at detecting aneurysms in patients with diabetic retinopathy. The project utilizes 1200 eye fundus images in .tif file format and employs a deep learning algorithm implemented using PyTorch. The model achieves an accuracy of 80% using a Convolutional Neural Network (CNN) with a ResNet18 architecture.
