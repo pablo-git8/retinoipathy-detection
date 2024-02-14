@@ -60,7 +60,7 @@ To get started with the project, follow these steps:
 
 ## References
 
-Include any relevant references or citations to papers, articles, or other resources used in the project.
+[TODO]
 
 ## Contributors
 
